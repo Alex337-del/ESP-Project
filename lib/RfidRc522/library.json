@@ -1,0 +1,14 @@
+{
+  "name": "RfidRc522",
+  "version": "1.0.0",
+  "description": "Обёртка над MFRC522: опрос меток, UID, белый список",
+  "keywords": "rfid, rc522, mfrc522, spi",
+  "authors": {
+    "name": "ESP-Project"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "dependencies": {
+    "miguelbalboa/MFRC522": "^1.4.11"
+  }
+}
