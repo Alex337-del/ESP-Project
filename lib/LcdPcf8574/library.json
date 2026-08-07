@@ -1,0 +1,14 @@
+{
+  "name": "LcdPcf8574",
+  "version": "1.0.0",
+  "description": "Обёртка над LCD1602/2004 через модуль I2C PCF8574",
+  "keywords": "lcd, i2c, pcf8574, hd44780",
+  "authors": {
+    "name": "ESP-Project"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "dependencies": {
+    "marcoschwartz/LiquidCrystal_I2C": "^1.1.4"
+  }
+}

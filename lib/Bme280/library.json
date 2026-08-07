@@ -1,0 +1,16 @@
+{
+  "name": "Bme280",
+  "version": "1.0.0",
+  "description": "Обёртка над датчиком BME280 (температура, влажность, давление) по I2C",
+  "keywords": "bme280, i2c, temperature, humidity",
+  "authors": {
+    "name": "ESP-Project"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "dependencies": {
+    "adafruit/Adafruit BME280 Library": "^2.2.4",
+    "adafruit/Adafruit Unified Sensor": "^1.1.14",
+    "adafruit/Adafruit BusIO": "^1.16.1"
+  }
+}

@@ -2,29 +2,21 @@
 
 #include <Arduino.h>
 
-// Аппаратные настройки платы
 namespace Config {
-  constexpr int kLedPin = 8;
-  constexpr int Rele_Pin = 10;
   constexpr unsigned long kSerialBaud = 115200;
   constexpr unsigned long kUsbCdcSettleMs = 2000;
 
-  // Период вывода статуса в Serial
-  constexpr unsigned long kStatusIntervalMs = 5000;
+  // LCD1602 через модуль PCF8574 (I2C)
+  // SDA -> GPIO2, SCL -> GPIO1
+  constexpr uint8_t kLcdSdaPin = 2;
+  constexpr uint8_t kLcdSclPin = 1;
+  constexpr uint8_t kLcdI2cAddr = 0x27;
+  constexpr uint8_t kLcdCols = 16;
+  constexpr uint8_t kLcdRows = 2;
 
-  // Таймаут первой попытки подключения в setup()
-  constexpr unsigned long kConnectTimeoutMs = 20000;
-
-  // Интервал между попытками переподключения в loop()
-  constexpr unsigned long kReconnectIntervalMs = 10000;
-
-  // RFID-RC522 (SPI). Не пересекаются с LED(8) и реле(10).
-  constexpr uint8_t kRfidSsPin = 7;
-  constexpr uint8_t kRfidRstPin = 3;
-  constexpr uint8_t kRfidSckPin = 4;
-  constexpr uint8_t kRfidMisoPin = 5;
-  constexpr uint8_t kRfidMosiPin = 6;
-
-
-  
+  // BME280 (I2C): SDA -> GPIO4, SCL -> GPIO3
+  constexpr uint8_t kBmeSdaPin = 4;
+  constexpr uint8_t kBmeSclPin = 3;
+  constexpr uint8_t kBmeI2cAddr = 0x76;
+  constexpr unsigned long kBmeReadIntervalMs = 2000;
 }
