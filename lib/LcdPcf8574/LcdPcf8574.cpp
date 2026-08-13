@@ -104,13 +104,24 @@ void LcdPcf8574::show(const char* line1, const char* line2) {
   if (lcd_ == nullptr || !online_) {
     return;
   }
-  lcd_->clear();
-  lcd_->setCursor(0, 0);
-  if (line1 != nullptr) {
-    lcd_->print(line1);
-  }
-  lcd_->setCursor(0, 1);
-  if (line2 != nullptr) {
-    lcd_->print(line2);
-  }
+
+  // Без clear(): он гасит экран и даёт мигание.
+  // Перезаписываем строки на месте и дополняем пробелами.
+  auto writeLine = [this](uint8_t row, const char* text) {
+    lcd_->setCursor(0, row);
+    uint8_t col = 0;
+    if (text != nullptr) {
+      while (text[col] != '\0' && col < config_.cols) {
+        lcd_->write(text[col]);
+        ++col;
+      }
+    }
+    while (col < config_.cols) {
+      lcd_->write(' ');
+      ++col;
+    }
+  };
+
+  writeLine(0, line1);
+  writeLine(1, line2);
 }
